@@ -12,7 +12,8 @@ export class SearchResultsPage {
   constructor(page: Page) {
     this.page = page;
     this.titleOfResultsPage = page.getByRole('link', { name: 'Results' });
-    this.selectItem = page.locator('[data-component-type="s-search-result"]').nth(1);
+    this.selectItem = page.locator('[data-component-type="s-search-result"]');
+    //this.searchResults = page.locator('[data-component-type="s-search-result"]');
     this.addToCart = page.locator('#a-autoid-2-announce');
   }
 
@@ -22,14 +23,11 @@ export class SearchResultsPage {
   }
 
   async selectItemFromList() {
-    //const secondProduct = page.locator('[data-component-type="s-search-result"]').nth(1); // 0 = first, 1 = second
-     //const productLink = this.selectItem.locator('h2 a');
-     //await this.selectItem.click();
-     // Find the product by partial title
-      const productLink = this.page.locator('a:has-text("OtterBox COMMUTER SERIES Case for iPhone 14 Pro")').first();
-
-  // Click on the product
-       await productLink.click();
+    //const productLink = this.page.locator('').first();
+    //await productLink.click();
+    const secondItem = this.selectItem.nth(1); // 0 = first, 1 = second
+    await secondItem.scrollIntoViewIfNeeded();
+    await secondItem.click();
   }
 
   async clickAddToCartButton() {

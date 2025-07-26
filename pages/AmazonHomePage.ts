@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 
-export class HomePage {
+export class AmazonHomePage {
   private page: Page;
   private searchTxt: Locator;
   private searchBtn: Locator;
