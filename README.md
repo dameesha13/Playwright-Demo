@@ -13,7 +13,7 @@ This project contains automated test cases for an https://demoqa.com/ site.
 ###### Checkout the branch
       git clone (https://github.com/dameesha13/Playwright-Demo.git)
 
-###### Run the code using maven goal
+###### Run the following command in the terminal
 
 ```
 npx playwright test textBoxTest.spec.ts
