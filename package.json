@@ -1,14 +1,20 @@
 {
+  "type": "module",
   "name": "playwrightexample",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+      "test:bdd": "NODE_OPTIONS='--loader ts-node/esm' cucumber-js --import tests/step-definitions/**/*.ts tests/features/**/*.feature"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.54.1",
-    "@types/node": "^24.0.15"
+    "@types/node": "^24.0.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

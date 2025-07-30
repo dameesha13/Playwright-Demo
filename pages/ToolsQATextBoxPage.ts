@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator,expect } from '@playwright/test';
 
 export class ToolsQATextBoxPage {
   private page: Page;
@@ -73,6 +73,14 @@ export class ToolsQATextBoxPage {
     await this.enterCurrentAddress(currentAddr);
     await this.enterPermanentAddress(permanentAddr);
     await this.clickSubmit();
+  }
+
+  //BDD
+  async validateSubmittedData(name: string, email: string) {
+    const nameText = await this.page.locator('#name').textContent();
+    const emailText = await this.page.locator('#email').textContent();
+    expect(nameText).toContain(name);
+    expect(emailText).toContain(email);
   }
 }
 
