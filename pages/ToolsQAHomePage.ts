@@ -21,12 +21,16 @@ export class ToolsQAHomePage {
     this.cardBookStore = page.locator('text=Book Store Application');
   }
 
-  async navigateToHomePage() {
-    await this.page.goto('https://demoqa.com/');
+  async navigateToHomePage(url: string) {
+    await this.page.goto(url);
   }
 
   async clickJoinNow() {
     await this.joinNowButton.click();
+  }
+
+  async clickCategoryCard(label: string) {
+    await this.page.click(`.card:has-text("${label}")`);
   }
 
   async clickElementCard() {
@@ -53,9 +57,9 @@ export class ToolsQAHomePage {
     await this.cardBookStore.click();
   }
 
-  async homePage() {
-    await this.navigateToHomePage();
-    await this.clickElementCard();
+  async navigateHomePageAndClickElement(url: string,cardName: string) {
+    await this.navigateToHomePage(url);
+    await this.clickCategoryCard(cardName);
   }  
 }
 
