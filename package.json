@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-      "test": "cucumber-js --config cucumber.cjs"
+      "test": "NODE_OPTIONS='--loader ts-node/esm' TS_NODE_PROJECT=tsconfig.tsnode.json cucumber-js --import tests/support/world.ts --import tests/step-definitions/**/*.ts tests/features/*.feature"
   },
   "keywords": [],
   "author": "",
