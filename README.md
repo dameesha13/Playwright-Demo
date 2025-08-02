@@ -14,30 +14,36 @@ This project contains automated test cases for an https://demoqa.com/ site.
 ###### Checkout the branch
       git clone (https://github.com/dameesha13/Playwright-Demo.git)
 
-###### Run the following command in the terminal
+###### Run the Playwright test using the following command in the terminal:
 
 ```
 npx playwright test textBoxTest.spec.ts
+```
+###### Run the BDD tests using the following command in the terminal:
+
+```
+npm test
 ```
 
 Project structure as below.
 
 ``` bash
 .
-├── pages
+├── pages #Page Object classes (POM)
      ├── ToolsQAHomePage.ts
      ├── ToolsQAElementsPage.ts
      ├── ToolsQATextBoxPage.ts
 ├── tests
      ├── features
+          ├── TextBoxForm.feature #.feature files written in Gherkin
      ├── step-definitions
+          ├── CommonStepdefs.ts #Glue code mapping Gherkin to test logic
      ├── support
-          ├── world.ts
-          ├── hooks.ts
+          ├── world.ts #CustomWorld + hooks (BeforeAll, AfterAll, etc.)
      ├── textBoxTest.spec.ts
-├── playwright.config.ts
-├── cucumber.cjs
-├── tsconfig.tsnode.json
-├── package.json
-├── README.md   
+├── cucumber.cjs #Cucumber configuration
+├── package.json #Defines project metadata, scripts, dependencies, and configuration
+├── playwright.config.ts #Configure how Playwright runs tests(Browser settings,Headless/headful mode etc)
+├── README.md
+├── tsconfig.tsnode.json  #TypeScript config for ts-node
 ...
